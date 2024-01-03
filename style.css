@@ -1,0 +1,92 @@
+body {
+    margin: 0;
+    font: normal 75% Arial, Helvetica, sans-serif;
+    background-color: #000000;
+}
+
+canvas {
+    display: block;
+    vertical-align: bottom;
+}
+
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    z-index: 1; /* Ensure particles are behind other elements */
+}
+
+.count-particles {
+    background: #000022;
+    position: absolute;
+    top: 48px;
+    left: 0;
+    width: 80px;
+    color: #13e8e9;
+    font-size: 0.8em;
+    text-align: left;
+    text-indent: 4px;
+    line-height: 14px;
+    padding-bottom: 2px;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    z-index: 2; /* Ensure count-particles is above particles */
+}
+
+.js-count-particles {
+    font-size: 1.1em;
+}
+
+.wrapper {
+    background-color: rgba(255, 255, 255, 0); /* Change to a fully opaque white color */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3; /* Ensure wrapper is above particles and count-particles */
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Russo+One&display=swap");
+
+svg {
+    font-family: "Russo One", sans-serif;
+    width: 100%;
+    height: 100%;
+    overflow: visible; /* Allow the text to overflow the SVG container */
+}
+
+svg text {
+    animation: stroke 9s infinite alternate;
+    stroke-width: 2;
+    stroke: #365FA0;
+    font-size: 100px;
+    dominant-baseline: middle; /* Vertically center the text */
+    text-anchor: middle; /* Horizontally center the text */
+}
+
+@keyframes stroke {
+    0%   {
+        fill: rgba(72, 138, 204, 0);
+        stroke: rgba(54, 95, 160, 1);
+        stroke-dashoffset: 25%;
+        stroke-dasharray: 0 50%;
+        stroke-width: 2;
+    }
+    70%  {
+        fill: rgba(72, 138, 204, 0);
+        stroke: rgba(54, 95, 160, 1);
+    }
+    80%  {
+        fill: rgba(72, 138, 204, 0);
+        stroke: rgba(54, 95, 160, 1);
+        stroke-width: 3;
+    }
+    100% {
+        fill: rgba(72, 138, 204, 1);
+        stroke: rgba(54, 95, 160, 0);
+        stroke-dashoffset: -25%;
+        stroke-dasharray: 50% 0;
+        stroke-width: 0;
+    }
+}
