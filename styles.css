@@ -21,26 +21,26 @@ canvas {
 .count-particles {
     background: #000022;
     position: absolute;
-    top: 48px;
-    left: 0;
-    width: 80px;
+    top: 2%;
+    left: 2%;
+    width: 15%;
     color: #13e8e9;
-    font-size: 0.8em;
+    font-size: 1.5vw;
     text-align: left;
-    text-indent: 4px;
-    line-height: 14px;
-    padding-bottom: 2px;
+    text-indent: 2%;
+    line-height: 2.5vw;
+    padding-bottom: 1%;
     font-family: Helvetica, Arial, sans-serif;
     font-weight: bold;
     z-index: 2;
 }
 
 .js-count-particles {
-    font-size: 1.1em;
+    font-size: 2vw;
 }
 
 .wrapper {
-    background-color: rgba(255, 255, 255, 1);
+    background-color: rgba(255, 255, 255, 0);
     position: absolute;
     top: 50%;
     left: 50%;
@@ -61,7 +61,7 @@ svg text {
     animation: stroke 9s infinite alternate;
     stroke-width: 2;
     stroke: #365FA0;
-    font-size: 100px;
+    font-size: 5vw;
     dominant-baseline: middle;
     text-anchor: middle;
 }
@@ -99,15 +99,15 @@ svg text {
 /* Media query for smaller screens (e.g., tablets) */
 @media only screen and (max-width: 768px) {
     .count-particles {
-        top: 24px;
-        width: 60px;
-        font-size: 0.7em;
-        line-height: 12px;
-        padding-bottom: 1px;
+        top: 2%;
+        left: 2%;
+        width: 20%;
+        font-size: 1.8vw;
+        line-height: 3vw;
     }
 
     .js-count-particles {
-        font-size: 1em;
+        font-size: 2.5vw;
     }
 
     .wrapper {
@@ -115,22 +115,22 @@ svg text {
     }
 
     svg text {
-        font-size: 70px;
+        font-size: 7vw;
     }
 }
 
 /* Media query for mobile phones */
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 300px) {
     .count-particles {
-        top: 12px;
-        width: 40px;
-        font-size: 0.6em;
-        line-height: 10px;
-        padding-bottom: 1px;
+        top: 2%;
+        left: 2%;
+        width: 25%;
+        font-size: 2.5vw;
+        line-height: 4vw;
     }
 
     .js-count-particles {
-        font-size: 0.9em;
+        font-size: 3vw;
     }
 
     .wrapper {
@@ -138,6 +138,6 @@ svg text {
     }
 
     svg text {
-        font-size: 50px;
+        font-size: 8vw;
     }
 }
