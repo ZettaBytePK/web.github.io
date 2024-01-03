@@ -1,3 +1,4 @@
+/* Common styles for all screen sizes */
 body {
     margin: 0;
     font: normal 75% Arial, Helvetica, sans-serif;
@@ -14,7 +15,7 @@ canvas {
     width: 100%;
     height: 100%;
     background-color: #000000;
-    z-index: 1; /* Ensure particles are behind other elements */
+    z-index: 1;
 }
 
 .count-particles {
@@ -31,7 +32,7 @@ canvas {
     padding-bottom: 2px;
     font-family: Helvetica, Arial, sans-serif;
     font-weight: bold;
-    z-index: 2; /* Ensure count-particles is above particles */
+    z-index: 2;
 }
 
 .js-count-particles {
@@ -39,12 +40,12 @@ canvas {
 }
 
 .wrapper {
-    background-color: rgba(255, 255, 255, 0); /* Change to a fully opaque white color */
+    background-color: rgba(255, 255, 255, 1);
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 3; /* Ensure wrapper is above particles and count-particles */
+    z-index: 3;
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Russo+One&display=swap");
@@ -53,7 +54,7 @@ svg {
     font-family: "Russo One", sans-serif;
     width: 100%;
     height: 100%;
-    overflow: visible; /* Allow the text to overflow the SVG container */
+    overflow: visible;
 }
 
 svg text {
@@ -61,8 +62,8 @@ svg text {
     stroke-width: 2;
     stroke: #365FA0;
     font-size: 100px;
-    dominant-baseline: middle; /* Vertically center the text */
-    text-anchor: middle; /* Horizontally center the text */
+    dominant-baseline: middle;
+    text-anchor: middle;
 }
 
 @keyframes stroke {
@@ -88,5 +89,55 @@ svg text {
         stroke-dashoffset: -25%;
         stroke-dasharray: 50% 0;
         stroke-width: 0;
+    }
+}
+
+.wrapper {
+    background-color: rgba(255, 255, 255, 0);
+}
+
+/* Media query for smaller screens (e.g., tablets) */
+@media only screen and (max-width: 768px) {
+    .count-particles {
+        top: 24px;
+        width: 60px;
+        font-size: 0.7em;
+        line-height: 12px;
+        padding-bottom: 1px;
+    }
+
+    .js-count-particles {
+        font-size: 1em;
+    }
+
+    .wrapper {
+        top: 40%;
+    }
+
+    svg text {
+        font-size: 70px;
+    }
+}
+
+/* Media query for mobile phones */
+@media only screen and (max-width: 400px) {
+    .count-particles {
+        top: 12px;
+        width: 40px;
+        font-size: 0.6em;
+        line-height: 10px;
+        padding-bottom: 1px;
+    }
+
+    .js-count-particles {
+        font-size: 0.9em;
+    }
+
+    .wrapper {
+        top: 30%;
+    }
+
+    svg text {
+        font-size: 50px;
     }
 }
