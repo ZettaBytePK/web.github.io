@@ -9,17 +9,114 @@
     <link rel="icon" type="image/x-icon" href="images/zettabyte-logo.ico">
     <link href="fonts/style.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden; /* Hide scrollbar during transition */
+            font-family: 'Azonix Regular', sans-serif;
+        }
+
+        .fixed-header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: transparent; /* Transparent background */
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            transition: background 0.3s ease-in-out; /* Smoother transition for background */
+        }
+
+        .fixed-header.scrolled {
+            background: #333; /* Background color when scrolled */
+        }
+
+        .logo img {
+            margin:50px;
+            height: 70px;
+            width: auto;
+        }
+
+.overlay {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0, 0.9);
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+
+.overlay-content {
+  position: relative;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus {
+  color: #488ACC;
+}
+
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+}
+
+@media screen and (max-height: 450px) {
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+  font-size: 40px;
+  top: 15px;
+  right: 35px;
+  }
+}
+.scroll-down-container div:hover, .scroll-down-container div:focus{
+    color: #488ACC;
+}
     </style>
     <script src="particles.min.js"></script>
     <script src="particles.js"></script>
 </head>
 
 <body>
+    <!-- Loading Bar -->
+    <div id="loading-bar"></div>
+
     <!-- Fixed Header -->
     <header class="fixed-header">
         <div class="logo">
-            <img height="75" width="283px" src="images/Zettabyte.png" alt="Zettabyte Logo">
+            <a href="#"><img src="images/Zettabyte.png" alt="Zettabyte Logo"></a>
         </div>
+<div id="myNav" class="overlay">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <div class="overlay-content">
+    <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">Clients</a>
+    <a href="#">Contact</a>
+  </div>
+</div>
+<span style="color:white;font-size:30px;cursor:pointer;margin-right:30px;" onclick="openNav()">MENU &#9776;</span>
+
+</div>
     </header>
 
     <!-- particles.js container -->
@@ -28,7 +125,7 @@
     <!-- SVG Loading Text -->
     <div class="wrapper">
         <svg>
-            <text x="50%" y="50%" dy=".35em" text-anchor="left"
+            <text x="50%" y="50%" dy=".35em" text-anchor="middle"
                 style="font-family:'Azonix Regular';font-weight:normal;">
                 SECURITY IS JUST A CHALLENGE
             </text>
@@ -41,14 +138,15 @@
             &#9660; Explore
         </div>
     </div>
-
-    <div>hrdqwdqwdqwd
-        <br></div>
     <script src="script.js"></script>
     <script>
         function scrollToIndex2() {
-           // const targetPage = 'index-2.html';
-            const duration = 1000; // Adjust the duration as needed (in milliseconds)
+            const targetPage = 'index-2.html';
+            const duration = 100; // Adjusted to 100 milliseconds
+
+            // Show loading bar
+            const loadingBar = document.getElementById('loading-bar');
+            loadingBar.style.width = '100%';
 
             const startTime = performance.now();
 
@@ -62,6 +160,8 @@
                     window.scrollTo(0, ease * window.innerHeight);
                     requestAnimationFrame(scroll);
                 } else {
+                    // Hide loading bar and navigate to the target page
+                    loadingBar.style.width = '3';
                     window.location.href = targetPage;
                 }
             }
@@ -75,8 +175,32 @@
 
             requestAnimationFrame(scroll);
         }
-    </script>
 
+        function toggleMenu() {
+            const nav = document.querySelector('nav ul');
+            nav.classList.toggle('show');
+        }
+
+        // Change background on scroll
+        const header = document.querySelector('.fixed-header');
+        window.addEventListener('scroll', () => {
+            const scrollPosition = window.scrollY;
+            if (scrollPosition > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+<script>
+function openNav() {
+  document.getElementById("myNav").style.width = "100%";
+}
+
+function closeNav() {
+  document.getElementById("myNav").style.width = "0%";
+}
+</script>
 </body>
 
 </html>
