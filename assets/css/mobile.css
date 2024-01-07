@@ -124,7 +124,7 @@
         max-width: 49vw;
     }
     .navbar-brand img{
-        height: 48px;
+      /*  height: 48px; */
     }
     .banner-main-con,
     .slider-con,
@@ -325,7 +325,7 @@
     padding-right: 8px;
 }
 .weight-footer-item-img figure img{
-    width: 150px;
+ /*   width: 150px; */
 }
 .weight-footer-item-img figure{
     margin-bottom: 12px;
