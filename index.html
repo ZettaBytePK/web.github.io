@@ -39,58 +39,110 @@
             width: auto;
         }
 
-.overlay {
-  height: 100%;
-  width: 0;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: rgb(0,0,0);
-  background-color: rgba(0,0,0, 0.9);
-  overflow-x: hidden;
-  transition: 0.5s;
-}
+        .overlay {
+          height: 100%;
+          width: 0;
+          position: fixed;
+          z-index: 1;
+          top: 0;
+          left: 0;
+          background-color: rgb(0,0,0);
+          background-color: rgba(0,0,0, 0.9);
+          overflow-x: hidden;
+          transition: 0.5s;
+        }
 
-.overlay-content {
-  position: relative;
-  top: 25%;
-  width: 100%;
-  text-align: center;
-  margin-top: 30px;
-}
+        .overlay-content {
+          position: relative;
+          top: 25%;
+          width: 100%;
+          text-align: center;
+          margin-top: 30px;
+        }
 
-.overlay a {
-  padding: 8px;
-  text-decoration: none;
-  font-size: 36px;
-  color: #818181;
-  display: block;
-  transition: 0.3s;
-}
+        .overlay a {
+          padding: 8px;
+          text-decoration: none;
+          font-size: 36px;
+          color: #818181;
+          display: block;
+          transition: 0.3s;
+        }
 
-.overlay a:hover, .overlay a:focus {
-  color: #488ACC;
-}
+        .overlay a:hover, .overlay a:focus {
+          color: #488ACC;
+        }
 
-.overlay .closebtn {
-  position: absolute;
-  top: 20px;
-  right: 45px;
-  font-size: 60px;
-}
+        .overlay .closebtn {
+          position: absolute;
+          top: 20px;
+          right: 45px;
+          font-size: 60px;
+        }
 
-@media screen and (max-height: 450px) {
-  .overlay a {font-size: 20px}
-  .overlay .closebtn {
-  font-size: 40px;
-  top: 15px;
-  right: 35px;
-  }
-}
-.scroll-down-container div:hover, .scroll-down-container div:focus{
-    color: #488ACC;
-}
+        @media screen and (max-height: 450px) {
+          .overlay a {font-size: 20px}
+          .overlay .closebtn {
+          font-size: 40px;
+          top: 15px;
+          right: 35px;
+          }
+        }
+
+        .scroll-down-container div:hover, .scroll-down-container div:focus{
+            color: #488ACC;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 60%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 3;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0);
+            padding: 0 2rem;
+        }
+
+        h1{
+            margin: 0.4rem;
+            font-size: 1rem;
+            color: white;
+        }
+
+        /* Cursor */
+        .txt-type > .txt {
+          border-right: 0.2rem solid #777;
+        }
+
+        @media(min-width: 1200px) {
+          h1 {
+           color:white;
+          }
+        }
+
+        @media(max-width: 800px) {
+          .container {
+            padding: 0 1rem;
+          }
+
+          h1 {
+            color:white;
+          }
+        }
+
+        @media(max-width: 500px) {
+          h1 {
+            
+            color:white;
+            
+          }
+
+        }
     </style>
     <script src="particles.min.js"></script>
     <script src="particles.js"></script>
@@ -105,18 +157,16 @@
         <div class="logo">
             <a href="#"><img src="images/Zettabyte.png" alt="Zettabyte Logo"></a>
         </div>
-<div id="myNav" class="overlay">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <div class="overlay-content">
-    <a href="#">About</a>
-    <a href="#">Services</a>
-    <a href="#">Clients</a>
-    <a href="#">Contact</a>
-  </div>
-</div>
-<span style="color:white;font-size:30px;cursor:pointer;margin-right:30px;" onclick="openNav()">MENU &#9776;</span>
-
-</div>
+        <div id="myNav" class="overlay">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+          <div class="overlay-content">
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Clients</a>
+            <a href="#">Contact</a>
+          </div>
+        </div>
+        <span style="color:white;font-size:30px;cursor:pointer;margin-right:30px;" onclick="openNav()">MENU &#9776;</span>
     </header>
 
     <!-- particles.js container -->
@@ -132,12 +182,20 @@
         </svg>
     </div>
 
+    <!-- Text Animation -->
+    <div class="container">
+        <h1>C:\> Agile Cyber Solutions: 
+            <span style="color:#488ACC;" class="txt-type" data-wait="3000" data-words='["Adapting to your business", "fostering growth", "and securing the future."]'></span>
+        </h1>
+    </div>
+
     <!-- Scroll Down Button -->
     <div class="scroll-down-container">
         <div class="scroll-down-icon" onclick="scrollToIndex2()">
             &#9660; Explore
         </div>
     </div>
+    
     <script src="script.js"></script>
     <script>
         function scrollToIndex2() {
@@ -192,15 +250,16 @@
             }
         });
     </script>
-<script>
-function openNav() {
-  document.getElementById("myNav").style.width = "100%";
-}
+    <script>
+        function openNav() {
+          document.getElementById("myNav").style.width = "100%";
+        }
 
-function closeNav() {
-  document.getElementById("myNav").style.width = "0%";
-}
-</script>
+        function closeNav() {
+          document.getElementById("myNav").style.width = "0%";
+        }
+    </script>
+    <script src="writer.js"></script>
 </body>
 
 </html>
