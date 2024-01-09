@@ -157,7 +157,7 @@ body{
     background:var(--accent);
 }
 .partner-box:hover figure img{
-    filter:  brightness(0) invert(1);
+   /* filter:  brightness(0) invert(1); */
     transition: transform 0.5s  ease-in-out;
 }
 /*slider-section*/
